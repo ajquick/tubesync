@@ -208,7 +208,7 @@ class Source(models.Model):
         _('directory'),
         max_length=100,
         db_index=True,
-        unique=True,
+        unique=False,
         help_text=_('Directory name to save the media into')
     )
     media_format = models.CharField(
@@ -938,6 +938,7 @@ class Media(models.Model):
             'acodec': display_format['acodec'],
             'fps': display_format['fps'],
             'hdr': display_format['hdr'],
+            'channel': self.uploader,
         }
 
     @property
